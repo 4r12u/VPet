@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <PlatformTarget>x64</PlatformTarget>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <CETCompat>false</CETCompat>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="VPet-Simulator.Windows" HintPath="$(PublishDirectory)/VPet-Simulator.Windows.dll" />
+    <Reference Include="VPet-Simulator.Core" HintPath="$(PublishDirectory)/VPet-Simulator.Core.dll" />
+    <Reference Include="VPet-Simulator.Windows.Interface" HintPath="$(PublishDirectory)/VPet-Simulator.Windows.Interface.dll" />
+    <Reference Include="LinePutScript" HintPath="$(PublishDirectory)/LinePutScript.dll" />
+    <Reference Include="Panuon.WPF.UI" HintPath="$(PublishDirectory)/Panuon.WPF.UI.dll" />
+    <Reference Include="Panuon.WPF" HintPath="$(PublishDirectory)/Panuon.WPF.dll" />
+  </ItemGroup>
+</Project>

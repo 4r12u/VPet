@@ -1,4 +1,4 @@
-﻿using System.Text;
+using System.Text;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -38,7 +38,6 @@ public partial class MainViewModel : CloseableViewModel
 
     #region Command
 
-
     [RelayCommand]
     private void OpenSettingEditor()
     {
@@ -67,7 +66,7 @@ public partial class MainViewModel : CloseableViewModel
             NativeUtils.OpenLink("https://www.bilibili.com/read/cv26510496/");
         else
             NativeUtils.OpenLink(
-                "https://steamcommunity.com/games/1920960/announcements/detail/3681184905256253203"
+                "https://github.com/LorisYounger/VPet/releases"
             );
     }
     #endregion

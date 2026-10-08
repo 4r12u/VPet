@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using HanumanInstitute.MvvmDialogs;
@@ -37,16 +37,13 @@ public partial class App : Application
                     File.Delete(path);
                 }
                 break;
-            case "launchsteam":
-                var psi = new ProcessStartInfo
+            case "launch":
+            case "launchsteam": // Compatibility with old shortcuts; launch the local executable.
+                Process.Start(new ProcessStartInfo
                 {
-                    FileName = "cmd",
-                    WindowStyle = ProcessWindowStyle.Hidden,
-                    UseShellExecute = false,
-                    RedirectStandardOutput = true,
-                    Arguments = "/c start steam://rungameid/1920960",
-                };
-                Process.Start(psi);
+                    FileName = Path.Combine(AppContext.BaseDirectory, "VPet-Simulator.Windows.exe"),
+                    UseShellExecute = true,
+                });
                 break;
         }
         Application.Current.Shutdown();

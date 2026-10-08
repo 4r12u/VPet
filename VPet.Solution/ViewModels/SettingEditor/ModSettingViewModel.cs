@@ -1,4 +1,4 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using HanumanInstitute.MvvmDialogs;
 using HanumanInstitute.MvvmDialogs.FrameworkDialogs;
@@ -97,14 +97,6 @@ public partial class ModSettingViewModel : CloseableViewModel, ISubSettingViewMo
             SearchMod = string.Empty;
         });
         Setting.IsChanged = true;
-    }
-
-    [RelayCommand]
-    private static void OpenSteamCommunity(ModModel parameter)
-    {
-        NativeUtils.OpenLink(
-            "https://steamcommunity.com/sharedfiles/filedetails/?id=" + parameter.ItemID
-        );
     }
 
     [RelayCommand]

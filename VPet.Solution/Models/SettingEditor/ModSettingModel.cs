@@ -1,4 +1,4 @@
-﻿using System.Collections.ObjectModel;
+using System.Collections.ObjectModel;
 using System.IO;
 using HKW.MVVM;
 using LinePutScript;
@@ -12,7 +12,6 @@ public partial class ModSettingModel : ObservableObjectEx, ISubSettingModel
     public const string OnModLineName = "onmod";
     public const string PassModLineName = "passmod";
     public const string MsgModLineName = "msgmod";
-    public const string WorkShopLineName = "workshop";
     public static readonly string ModDirectory = Path.Combine(Environment.CurrentDirectory, "mod");
     public static Dictionary<string, ModLoader> LocalMods { get; private set; } = null!;
 
@@ -105,7 +104,7 @@ public partial class ModSettingModel : ObservableObjectEx, ISubSettingModel
                 {
                     modModel.IsEnabled = setting[OnModLineName].Contains(modModel.Name.ToLowerInvariant());
                 }
-                
+
                 Mods.Add(modModel);
             }
             else
@@ -114,23 +113,7 @@ public partial class ModSettingModel : ObservableObjectEx, ISubSettingModel
             }
 
         }
-        
-        foreach (var modPath in setting[WorkShopLineName])
-        {
-            var loader = new ModLoader(modPath.Name);
-            if (loader.IsSuccesses)
-            {
-                var modModel = new ModModel(loader);
-                modModel.IsMsg = setting[MsgModLineName].GetBool(modModel.ID);
-                modModel.IsPass = setting[PassModLineName].Contains(modModel.ID.ToLowerInvariant());
-                modModel.IsEnabled = setting[OnModLineName].Contains(modModel.Name.ToLowerInvariant());
-                Mods.Add(modModel);
-            }
-            else
-            {
-                Mods.Add(new() { Name = loader.Name, ModPath = loader.ModPath });
-            }
-        }
+
     }
 
     public void Save(Setting setting)

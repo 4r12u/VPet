@@ -1,7 +1,6 @@
-﻿using LinePutScript;
+using LinePutScript;
 using LinePutScript.Dictionary;
 using LinePutScript.Localization.WPF;
-using Steamworks;
 using System;
 using System.Windows;
 using VPet_Simulator.Core;
@@ -41,7 +40,6 @@ namespace VPet_Simulator.Windows
             autochangewindow = !this["gameconfig"].GetBool("autochangewindow");
             this.mw = mw;
         }
-
 
         private double zoomlevel = 0;
         /// <summary>
@@ -595,8 +593,7 @@ namespace VPet_Simulator.Windows
             if (ischangename)
             {
                 mw.Core.Save!.Name = petloader.PetName.Translate();
-                if (mw.IsSteamUser)
-                    SteamFriends.SetRichPresence("username", mw.Core.Save!.Name);
+
             }
         }
 

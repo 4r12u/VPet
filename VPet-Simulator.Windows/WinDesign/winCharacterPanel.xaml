@@ -1,4 +1,4 @@
-﻿<pu:WindowX x:Class="VPet_Simulator.Windows.winCharacterPanel"
+<pu:WindowX x:Class="VPet_Simulator.Windows.winCharacterPanel"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -82,10 +82,8 @@
                         IsEnabled="False" />
                 <CheckBox x:Name="cb_NoCheat" Content="{ll:Str '未使用过作弊模组和修改游戏数据'}" Margin="5,2"
                         BorderBrush="{DynamicResource DARKPrimary}" pu:CheckBoxHelper.CornerRadius="4" IsEnabled="False"
-                        Unchecked="cb_NoCheat_Unchecked" />
-                <CheckBox x:Name="cb_AgreeUpload" Content="{ll:Str '同意上传统计数据至Steam排行榜'}" Margin="5,2"
-                        BorderBrush="{DynamicResource DARKPrimary}" pu:CheckBoxHelper.CornerRadius="4" Grid.Row="1"
-                        IsEnabled="False" Checked="cb_AgreeUpload_Checked" />
+                        />
+
                 <ScrollViewer Grid.Row="2" Grid.ColumnSpan="2" x:Name="r_viewbox" Visibility="Collapsed">
                     <Viewbox x:Name="r_output">
                         <Grid x:Name="r_output_base">
@@ -132,8 +130,7 @@
                                             Text="{ll:Str r天}" /><LineBreak />
                                 <Run Text="{ll:Str 你陪伴她的时长是}" /> <Run x:Name="r_r_length_h" Text="XX" FontWeight="Bold"
                                             Foreground="{DynamicResource DARKPrimaryDark}" /> <Run Text="{ll:Str r小时}" /><LineBreak />
-                                <Run Text="{ll:Str 超过了全球}" /> <Run x:Name="r_r_length_p" Text="XX" FontWeight="Bold"
-                                            Foreground="{DynamicResource DARKPrimaryDark}" /> <Run Text="{ll:Str r的主人}" /><LineBreak />
+
                                 <Run x:Name="r_r_lenghranktext" Text="主人~感谢陪伴~" FontWeight="Bold"
                                             Foreground="{DynamicResource DARKPrimaryDarker}" />
                                 </TextBlock>
@@ -166,8 +163,7 @@
                                         Margin="10,0,10,0" Grid.Row="5" FontSize="16" MaxWidth="300" TextWrapping="Wrap">
                              <Run Text="{ll:Str 单次学习最大获得}" /> <Run x:Name="r_r_studyexpmax" Text="XX" FontWeight="Bold"
                                             Foreground="{DynamicResource DARKPrimaryDark}" /> <Run Text="{ll:Str 经验}" /><LineBreak />
-                             <Run Text="{ll:Str 超过了全球}" /> <Run x:Name="r_r_studyexpmaxrank" Text="XX" FontWeight="Bold"
-                                            Foreground="{DynamicResource DARKPrimaryDark}" /> <Run Text="{ll:Str r的主人}" /><LineBreak />
+
                              <Run x:Name="r_r_studyexptext" Text="看我量子速读法!"
                                             Foreground="{DynamicResource DARKPrimaryDarker}" FontWeight="Bold" />
                                 </TextBlock>
@@ -179,9 +175,7 @@
                                             Foreground="{DynamicResource DARKPrimaryDark}" /> <Run Text="{ll:Str r分钟}" /><LineBreak />
                                 <Run Text="{ll:Str 工作占总时间}" /> <Run x:Name="r_r_worktimeps" Text="XX" FontWeight="Bold"
                                             Foreground="{DynamicResource DARKPrimaryDark}" /><LineBreak />
-                                <Run Text="{ll:Str 超过了全球}" /> <Run x:Name="r_r_worktimepsrank" Text="XX"
-                                            FontWeight="Bold" Foreground="{DynamicResource DARKPrimaryDark}" /> <Run
-                                            Text="{ll:Str r的主人}" /><LineBreak />
+
                                <Run x:Name="r_r_worktext" Text="“我草，卷狗”"
                                             Foreground="{DynamicResource DARKPrimaryDarker}" FontWeight="Bold" />
                                 </TextBlock>
@@ -191,9 +185,7 @@
                                  <Run Text="{ll:Str 单次工作最大获得}" /> <Run x:Name="r_r_workmoneymax" Text="XX"
                                             FontWeight="Bold" Foreground="{DynamicResource DARKPrimaryDark}" /> <Run
                                             Text="{ll:Str 金钱}" /><LineBreak />
-                                 <Run Text="{ll:Str 超过了全球}" /> <Run x:Name="r_r_workmoneyrank" Text="XX"
-                                            FontWeight="Bold" Foreground="{DynamicResource DARKPrimaryDark}" /> <Run
-                                            Text="{ll:Str r的主人}" /><LineBreak />
+
                                  <Run x:Name="r_r_workmoneytext" Text="可是，我真的很需要那些钱钱!"
                                             Foreground="{DynamicResource DARKPrimaryDarker}" FontWeight="Bold" />
                                 </TextBlock>
@@ -221,8 +213,7 @@
                                             Foreground="{DynamicResource DARKPrimaryDark}" /> <Run Text="{ll:Str 次}" /><LineBreak />
                                  <Run Text="{ll:Str 占全部购买}" /> <Run x:Name="r_r_autobuypres" Text="XX" FontWeight="Bold"
                                             Foreground="{DynamicResource DARKPrimaryDark}" /><LineBreak />
-                                 <Run Text="{ll:Str 超过了全球}" /> <Run x:Name="r_r_autobuyrank" Text="XX" FontWeight="Bold"
-                                            Foreground="{DynamicResource DARKPrimaryDark}" /> <Run Text="{ll:Str r的主人}" /><LineBreak />
+
                                  <Run x:Name="r_r_autobuytext" Text="“不要小看我的情报网！你自动购买礼物没关，对不对？”"
                                             Foreground="{DynamicResource DARKPrimaryDarker}" FontWeight="Bold" />
                                 </TextBlock>
@@ -231,14 +222,12 @@
                                 <TextBlock Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"
                                         Margin="10,0,10,0" Grid.Row="10" FontSize="16" MaxWidth="350"
                                         TextWrapping="Wrap">
-                                   <Run Text="{ll:Str 你订阅了}" /> <Run x:Name="r_r_modcount" Text="XX" FontWeight="Bold"
+                                   <Run Text="{ll:Str 你安装了}" /> <Run x:Name="r_r_modcount" Text="XX" FontWeight="Bold"
                                             Foreground="{DynamicResource DARKPrimaryDark}" /> <Run Text="{ll:Str 个mod}" /><LineBreak />
                                    <Run Text="{ll:Str 启用的其中的}" /> <Run x:Name="r_r_modenablecount" Text="XX"
                                             FontWeight="Bold" Foreground="{DynamicResource DARKPrimaryDark}" /> <Run
                                             Text="{ll:Str 个mod}" /><LineBreak />
-                                   <Run Text="{ll:Str 你订阅mod数超过了全球}" /> <Run x:Name="r_r_modcountrank" Text="XX"
-                                            FontWeight="Bold" Foreground="{DynamicResource DARKPrimaryDark}" /> <Run
-                                            Text="{ll:Str r的主人}" /><LineBreak />
+
                                   <Run x:Name="r_r_modcounttext" Text="“主人已经是mod大师了喵，要不要试试mod制作器，给我做mod喵”"
                                             Foreground="{DynamicResource DARKPrimaryDarker}" FontWeight="Bold" />
                                 </TextBlock>
@@ -279,9 +268,7 @@
                                             FontWeight="Bold"
                                             FontFamily="/VPet-Simulator.Windows;component/Res/#remixicon"
                                             Foreground="{DynamicResource DARKPrimaryDark}" /><LineBreak /><LineBreak />
-                                 <Run Text="{ll:Str 超过了全球}" /> <Run x:Name="r_r_likecountrank" Text="XX"
-                                            FontWeight="Bold" Foreground="{DynamicResource DARKPrimaryDark}" /> <Run
-                                            Text="{ll:Str 'r的主人'}" /><LineBreak />                                 
+
                                  <LineBreak />
                                 <Run Text="&quot;" Foreground="{DynamicResource DARKPrimaryDarker}" FontWeight="Bold" /><Run
                                             Text="{ll:Str '最喜欢你了主人~ 新的一年请多多关照喵~'}"

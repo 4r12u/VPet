@@ -1,6 +1,5 @@
-﻿using LinePutScript.Dictionary;
+using LinePutScript.Dictionary;
 using LinePutScript.Localization.WPF;
-using Steamworks;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -17,7 +16,6 @@ namespace VPet_Simulator.Windows;
 public partial class MainWindow
 {//主窗口部分数据
 
-
     /// <summary>
     /// 版本号
     /// </summary>
@@ -29,11 +27,11 @@ public partial class MainWindow
     /// <summary>
     /// SteamID
     /// </summary>
-    public ulong SteamID => IsSteamUser ? SteamClient.SteamId.Value : 0;
+    public ulong SteamID => 0;
     /// <summary>
     /// SteamIDAccountId
     /// </summary>
-    public uint SteamAuthorID => IsSteamUser ? SteamClient.SteamId.AccountId : 0;
+    public uint SteamAuthorID => 0;
     public List<LowText> LowFoodText { get; set; } = new List<LowText>();
 
     public List<LowText> LowDrinkText { get; set; } = new List<LowText>();
@@ -50,9 +48,11 @@ public partial class MainWindow
     public GameSave_v2 GameSavesData { get; set; } = new GameSave_v2("VPET");
 
     public static readonly string ModPath = ExtensionValue.BaseDirectory + @"\mod";
-    public bool IsSteamUser { get; }
+    // Legacy plugin compatibility: standalone never connects to Steam.
+    public bool IsSteamUser => false;
     public LPS_D Args { get; }
     public string PrefixSave { get; } = "";
+    internal string StartupProfileArgument => $"prefix#{(PrefixSave.Length == 0 ? "" : PrefixSave.Substring(1))}:|";
     private string? prefixsavetrans = null;
     public string PrefixSaveTrans
     {
@@ -117,8 +117,6 @@ public partial class MainWindow
     /// 物品栏 桌宠有的物品
     /// </summary>
     public List<Item> Items { get; set; } = new List<Item>();
-
-
 
     /// <summary>
     /// 所有可用套餐
